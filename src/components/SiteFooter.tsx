@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Twitter, Instagram, Mail, MapPin } from "lucide-react";
+import logo from "../images/agricones.ico";
 
 export function SiteFooter() {
   return (
@@ -7,10 +8,7 @@ export function SiteFooter() {
       <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <div className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
-              <span className="text-white">AGRI</span>
-              <span style={{ color: "var(--amber-brand)" }}>CONES</span>
-            </div>
+            <img src={logo} alt="AGRICONES" className="h-14 w-auto" />
             <p className="mt-3 italic text-sm text-white/70">"From Ideas to Impact."</p>
             <div className="flex gap-3 mt-5">
               <a href="#" aria-label="LinkedIn" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"><Linkedin size={16} /></a>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Globe, Linkedin, Instagram, Twitter } from "lucide-react";
+import logo from "../images/agricones.ico";
 
 const services = [
   { label: "Agribusiness Services", hash: "agribusiness" },
@@ -35,15 +36,11 @@ export function SiteHeader() {
     >
       <div className="max-w-[1240px] mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-2 group">
-          <span
-            className={`text-2xl font-bold tracking-tight ${
-              scrolled || mobileOpen ? "" : "drop-shadow"
-            }`}
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            <span style={{ color: scrolled || mobileOpen ? "var(--forest)" : "white" }}>AGRI</span>
-            <span style={{ color: "var(--amber-brand)" }}>CONES</span>
-          </span>
+          <img
+            src={logo}
+            alt="AGRICONES"
+            className={`h-14 md:h-16 w-auto transition-all ${scrolled || mobileOpen ? "" : "drop-shadow-[0_3px_8px_rgba(0,0,0,0.35)]"}`}
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

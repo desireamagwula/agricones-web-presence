@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import romaldoLewis from "../images/romaldo lewis.png";
+import philipCastillo from "../images/philip castillo.png";
+import desireeAvila from "../images/desiree avila.png";
+import antonioCano from "../images/antonio cano.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -22,52 +26,75 @@ const team = [
   {
     name: "Dr. Romaldo Isaac Lewis, DBA/PhD",
     role: "Founder & Lead Consultant",
-    initials: "RL",
+    image: romaldoLewis,
     tags: ["DBA", "MSc Project Management", "MBA"],
     bio: [
-      "Dr. Romaldo Isaac Lewis is a highly accomplished consultant, academic, and development specialist with more than 20 years of experience in agricultural systems, business strategy, project management, and socio-economic development across Belize, Central America, and the Caribbean. As the Founder and Lead Consultant of AGRICONES, he brings a results-driven approach to addressing complex challenges in agriculture, rural development, and enterprise growth.",
+      "Dr. Romaldo Isaac Lewis (DBA/PhD) is a highly accomplished consultant, academic, and development specialist with more than 20 years of experience in agricultural systems, business strategy, project management, and socio-economic development across Belize, Central America, and the Caribbean.",
+      "As the founder and Lead consultant of AGRICONES for the past 16 years, he brings a result-driven approach to addressing complex challenges in agriculture, rural development, and enterprise growth.",
       "Dr. Lewis holds a Doctor of Business Administration (DBA), a Master of Science in Project Management, and a Master of Business Administration, and is currently pursuing a Post-Doctorate in Business Management and Innovation.",
-      "He serves as a faculty member at the University of Belize, teaching operations and supply chain management, project management, quantitative research methods, and strategic decision-making, and has served as Faculty Chair of the Faculty of Management and Social Sciences.",
-      "His consulting portfolio includes major assignments with IICA, the Statistical Institute of Belize (SIB), FAO, IFAD, the Inter-American Development Bank (IDB), and the World Bank — encompassing project design and evaluation, infrastructure impact assessments, agricultural value chain analyses, feasibility studies, and strategic and business plan development.",
+      "His multidisciplinary academic background is complemented by extensive practical experience, enabling him to bridge the gap between theory, policy, and real-world implementation.",
+      "Dr. Lewis serves as a faculty member at the University of Belize, where he teaches at both undergraduate and graduate levels in operations and supply chain management, project management, quantitative research methods, and strategic decision-making.",
+      "His academic leadership experience includes serving as Faculty Chair of the Faculty of Management and Social Sciences, where he played a key role in curriculum development, institutional planning, and policy design to strengthen higher education outcomes.",
+      "Throughout his career, Dr. Lewis has worked with government ministries, international development agencies, private sector organizations, and community-based groups.",
+      "His consulting portfolio includes major assignments with the Inter-American Institute for Cooperation on Agriculture (IICA), the Statistical Institute of Belize (SIB), the Food and Agriculture Organization (FAO), the International Fund for Agricultural Development (IFAD), the Inter-American Development Bank (IDB), and the World Bank.",
+      "His work has focused on project design and evaluation, infrastructure impact assessments, agricultural value chain analyses, economic and financial analysis, data analytics, feasibility studies, and strategic and business plan development.",
+      "Dr. Lewis is deeply committed to advancing sustainable agriculture, inclusive economic development, and capacity building through innovative, data-driven, and client-centered solutions that deliver measurable impact.",
     ],
     clients: ["FAO", "World Bank", "IFAD", "IDB", "IICA", "SIB"],
   },
   {
     name: "Dr. Philip Castillo, PhD",
     role: "Senior Consultant — Development Economics",
-    initials: "PC",
+    image: philipCastillo,
     tags: ["PhD Development Studies", "MSc Development Studies", "BSc Economics"],
     bio: [
-      "Dr. Philip Castillo is a distinguished development economist, researcher, and academic with over 30 years of experience in economic policy, socio-economic analysis, and development planning in Belize and the wider Caribbean. As a Senior Consultant with AGRICONES, he brings extensive expertise in public policy design, poverty assessment, economic modeling, and institutional strengthening.",
-      "Dr. Castillo holds a Ph.D. in Development Studies and MSc from the University of the West Indies (UWI), complemented by specialized training in results-based management, financial programming, and project management.",
-      "He has held key leadership roles including faculty membership for nearly two decades at the University of Belize and Chair of the Faculty of Management and Social Sciences. He has also worked as an Economist at Belize's Ministry of Finance and as a Research Assistant at SALISES, UWI.",
-      "His international consultancy portfolio spans the World Bank, UNDP, IDB, ECLAC, and IOM — covering poverty and vulnerability assessments, social protection programme evaluation, labour migration, public finance reform, health systems analysis, and national development strategy design.",
+      "Dr. Phillip Castillo is a distinguished development economist, researcher, and academic with over 30 years of experience in economic policy, socio-economic analysis, and development planning in Belize and the wider Caribbean.",
+      "As a senior consultant with AGRICONES, he brings extensive expertise in public policy design, poverty assessment, economic modeling, and institutional strengthening, supporting evidence-based decision-making for sustainable development.",
+      "Dr. Castillo holds a Ph.D. in Development Studies and a Master of Science in Development Studies from the University of the West Indies (UWI), along with a Bachelor of Science in Economics and an Associate Degree in Economics from Belize.",
+      "His academic foundation is complemented by specialized training in results-based management, financial programming and policies, and project management across leading regional and international institutions.",
+      "Throughout his career, Dr. Castillo has held key leadership roles in academia, government, and research institutions. He served for nearly two decades as a faculty member at the University of Belize, including as Chair of the Faculty of Management and Social Sciences.",
+      "Earlier in his career, he worked as an Economist at the Ministry of Finance in Belize and as a Research Assistant at the Sir Arthur Lewis Institute of Social and Economic Studies (SALISES) at UWI.",
+      "Dr. Castillo has an extensive portfolio of high-level consultancies with international and regional organizations, including the World Bank, United Nations Development Programme (UNDP), Inter-American Development Bank (IDB), Economic Commission for Latin America and the Caribbean (ECLAC), and the International Organization for Migration (IOM).",
+      "His consultancy work spans poverty and vulnerability assessments, social protection programme evaluation, labour migration, energy efficiency, public finance reform, health systems analysis, and national development strategy design.",
+      "He has led and contributed to several landmark national and regional studies, including Belize's Millennium Development Goals (MDG) Report and Post-2015 Development Agenda, evaluation of the BOOST+ social protection programme, and strategic assessments of labour migration and the citrus industry.",
+      "An accomplished author and researcher, Dr. Castillo has published in peer-reviewed journals and international outlets on topics such as health inequality, quality of life, migration, and economic development.",
     ],
     clients: ["World Bank", "UNDP", "IDB", "ECLAC", "IOM"],
   },
   {
     name: "Dr. Desiree Ann Avila, DBA",
     role: "Consultant — Business Administration & Research",
-    initials: "DA",
+    image: desireeAvila,
     tags: ["DBA", "MBA Finance (Magna Cum Laude)", "BSc Business Administration"],
     bio: [
-      "Dr. Desiree Ann Avila is a highly accomplished Belizean academic, administrator, and consultant with over 20 years of professional experience spanning higher education, research, and organizational leadership. She currently serves as Faculty Chair at the University of Belize in Belmopan.",
-      "Dr. Avila holds a Doctorate in Business Administration from Unicaf University, an MBA in Finance from Galen University (Magna Cum Laude), and a BSc in Business Administration from the University of Belize. Her research examines the relationship between leadership styles, employee motivation, and organizational performance.",
-      "She has led major national studies including a countrywide data collection initiative for UNICEF on out-of-pocket expenditures for health and education in Belize, and has worked with Unicomer on focus group research supporting marketing strategies.",
-      "Dr. Avila's scholarly contributions include publications on tourism micro-entrepreneurship, international business practices, and public service perceptions. At AGRICONES, she brings academic rigor, consulting expertise, and strategic insight to every engagement.",
+      "Dr. Desiree Ann Avila (DBA) is a highly accomplished Belizean academic, administrator, and consultant with over 20 years of professional experience spanning higher education, research, and organizational leadership.",
+      "She currently serves as Faculty Chair at the University of Belize in Belmopan, where she plays a pivotal role in advancing strategic initiatives, strengthening academic systems, and supporting institutional transformation.",
+      "Dr. Avila holds a Doctorate in Business Administration from Unicaf University, an MBA in Finance from Galen University (Magna Cum Laude), and a Bachelor's degree in Business Administration from the University of Belize.",
+      "Her research examined the relationship between leadership styles, employee motivation, and organizational performance using advanced quantitative methods.",
+      "Since joining the University of Belize as a Lecturer in 2011, she has taught a wide range of accounting and finance courses, coordinated academic programs, and developed student-focused initiatives such as tutoring systems and internship programs.",
+      "Her leadership as Faculty Chair includes faculty supervision, policy compliance, academic planning, and active participation in national accreditation and strategic planning processes.",
+      "Beyond academia, Dr. Avila has built a strong portfolio as a consultant and applied researcher. She has led and contributed to major national studies, including a countrywide data collection initiative for UNICEF examining out-of-pocket expenditures on health and education in Belize.",
+      "She has also worked with private sector organizations such as Unicomer, where she planned and managed focus group research to support marketing strategies and customer insights.",
+      "Her scholarly contributions include publications on tourism micro entrepreneurship, international business practices, and public service perceptions in Belize. At AGRICONES, she brings a unique combination of academic excellence, consulting expertise, and strategic insight.",
     ],
     clients: ["UNICEF", "University of Belize", "Unicomer"],
   },
   {
     name: "Mr. Antonio Cano",
     role: "Senior Consultant — Environmental Sciences & GIS",
-    initials: "AC",
+    image: antonioCano,
     tags: ["Environmental Science", "GIS & Remote Sensing", "Public Administration"],
     bio: [
-      "Mr. Antonio Cano brings a unique blend of academic excellence, applied environmental science, and advanced geospatial expertise to AGRICONES. His contribution strengthens the organization's ability to design, implement, and monitor sustainable environmental solutions across agricultural landscapes.",
-      "At the core of his value is expertise in Geographic Information Systems (GIS), remote sensing, and spatial analysis — enabling data-driven environmental management through high-quality geospatial products including land-use maps, environmental sensitivity analyses, and climate risk assessments.",
-      "His extensive experience in watershed and ecosystem management planning enhances AGRICONES' capacity to deliver integrated environmental services. Having led watershed management plan development and contributed to national-level forest mapping protocols, Mr. Cano designs strategies that protect water resources, restore degraded lands, and promote biodiversity conservation.",
-      "Mr. Cano has worked with international organizations including FAO, translating climate science into practical adaptation strategies. He also leads capacity-building programs for staff and stakeholders and supports proposal development, environmental reporting, and monitoring frameworks aligned with international standards.",
+      "Mr. Antonio Cano, as a senior consultant, brings a unique blend of academic excellence, applied environmental science, and advanced geospatial expertise that strengthens AGRICONES' environmental service portfolio.",
+      "At the core of his value is expertise in Geographic Information Systems (GIS), remote sensing, and spatial analysis, enabling data-driven environmental management.",
+      "Mr. Cano supports AGRICONES by developing high-quality geospatial products such as land-use maps, environmental sensitivity analyses, and climate risk assessments.",
+      "His extensive experience in watershed and ecosystem management planning enhances AGRICONES' capacity to deliver integrated environmental services.",
+      "Having led the development of watershed management plans and contributed to national-level forest mapping protocols, Mr. Cano guides strategies that protect water resources, restore degraded lands, and promote biodiversity conservation within agricultural systems.",
+      "In the context of climate change, Mr. Cano's work with international organizations such as FAO demonstrates his ability to translate climate science into practical adaptation strategies.",
+      "He assists AGRICONES to develop and implement climate-smart agriculture initiatives, including systems for monitoring ecosystem health, forecasting environmental change, and building resilience among farming communities.",
+      "Another key contribution lies in his strength as a capacity builder and educator. He has a proven track record of delivering technical trainings and developing instructional materials for staff, partners, and stakeholders.",
+      "Additionally, his experience in project development, stakeholder engagement, and technical reporting enables him to support AGRICONES in securing funding and executing projects efficiently.",
+      "His multidisciplinary background spanning environmental science, public administration, and geospatial technology helps bridge science, policy, and practical implementation.",
     ],
     clients: ["FAO", "Environmental Planning", "GIS Services"],
   },
@@ -114,10 +141,11 @@ function AboutPage() {
             {team.map((m) => (
               <article key={m.name} className="bg-white rounded-xl shadow-sm border border-border p-8 md:p-10 grid md:grid-cols-[200px_1fr] gap-8">
                 <div className="text-center md:text-left">
-                  <div className="w-36 h-36 rounded-full mx-auto md:mx-0 flex items-center justify-center text-4xl font-bold text-white shadow-md"
-                    style={{ background: "linear-gradient(135deg, var(--forest), var(--sage))", fontFamily: "var(--font-display)" }}>
-                    {m.initials}
-                  </div>
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    className="w-36 h-36 rounded-full mx-auto md:mx-0 object-cover object-top border-4 border-white shadow-md"
+                  />
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-semibold" style={{ color: "var(--forest)" }}>{m.name}</h3>

@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown, Sprout, Globe2, Link2, Wheat, BarChart3, ClipboardList, Home, Leaf } from "lucide-react";
+import romaldoLewis from "../images/romaldo lewis.png";
+import philipCastillo from "../images/philip castillo.png";
+import desireeAvila from "../images/desiree avila.png";
+import antonioCano from "../images/antonio cano.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,10 +45,30 @@ const services = [
 ];
 
 const team = [
-  { name: "Dr. Romaldo Isaac Lewis, DBA/PhD", role: "Founder & Lead Consultant", desc: "20+ years in agricultural systems, business strategy, and development across Belize and the Caribbean.", initials: "RL" },
-  { name: "Dr. Philip Castillo, PhD", role: "Senior Consultant", desc: "30+ years in economic policy, socio-economic analysis, and development planning.", initials: "PC" },
-  { name: "Dr. Desiree Ann Avila, DBA", role: "Consultant", desc: "20+ years in higher education, organizational leadership, finance, and applied research.", initials: "DA" },
-  { name: "Mr. Antonio Cano", role: "Senior Consultant", desc: "Expert in GIS, remote sensing, watershed management, and environmental science.", initials: "AC" },
+  {
+    name: "Dr. Romaldo Isaac Lewis (DBA/PhD)",
+    role: "Founder & Lead Consultant",
+    desc: "20+ years in agricultural systems, business strategy, project management, and socio-economic development.",
+    image: romaldoLewis,
+  },
+  {
+    name: "Dr. Philip Castillo (PhD)",
+    role: "Senior Consultant — Development Economics",
+    desc: "30+ years in economic policy, poverty assessment, economic modelling, and development planning.",
+    image: philipCastillo,
+  },
+  {
+    name: "Dr. Desiree Ann Avila (DBA)",
+    role: "Consultant — Business Administration & Research",
+    desc: "20+ years across higher education, research, organizational leadership, and applied consulting.",
+    image: desireeAvila,
+  },
+  {
+    name: "Mr. Antonio Cano",
+    role: "Senior Consultant — Environmental Sciences & GIS",
+    desc: "Advanced GIS, remote sensing, watershed management, climate adaptation, and environmental planning.",
+    image: antonioCano,
+  },
 ];
 
 const partners = ["FAO", "World Bank", "IFAD", "IDB", "UNDP", "IICA", "UNICEF", "ECLAC"];
@@ -62,7 +86,7 @@ function HomePage() {
           <p className="eyebrow text-white/80">Consulting · Agriculture · Development</p>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold leading-tight">From Ideas to Impact.</h1>
           <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed">
-            Multidisciplinary consulting delivering results across Agriculture, Business, Project Management, Real Estate & the Environment.
+            AGRICONES is a multidisciplinary consulting firm delivering reliable, results-driven advisory services across Agriculture, Business Development, Project Management, and Real Estate.
           </p>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <Link to="/services" className="btn-primary">Explore Our Services <ArrowRight size={16} /></Link>
@@ -112,8 +136,12 @@ function HomePage() {
               A Trusted Partner for Sustainable Growth
             </h2>
             <div className="mt-6 space-y-4 text-charcoal/80 leading-relaxed">
-              <p>AGRICONES is a multidisciplinary consulting firm delivering reliable, results-driven advisory services across Agriculture, Business Development, Project Management, and Real Estate. We work at the intersection of strategy, execution, and impact — helping clients move from ideas to implementation with clarity, discipline, and measurable results.</p>
-              <p>With a strong foundation in emerging and developing markets, AGRICONES supports private enterprises, cooperatives, investors, development partners, and public institutions seeking practical solutions to complex challenges.</p>
+              <p>AGRICONES is a multidisciplinary consulting firm delivering reliable, results-driven advisory services across Agriculture, Business Development, Project Management, and Real Estate. We work at the intersection of strategy, execution, and impact, helping clients move from ideas to implementation with clarity, discipline, and measurable results.</p>
+              <p>With a strong foundation in emerging and developing markets, AGRICONES supports private enterprises, cooperatives, investors, development partners, and public institutions seeking practical solutions to complex challenges. Our approach combines technical expertise, sound governance, and market intelligence, ensuring every engagement is both commercially viable and sustainably designed.</p>
+              <p>In Agriculture and Agribusiness, AGRICONES strengthens value chains, improves productivity, and supports market access through sustainable and climate-resilient practices. We help producers and agribusinesses transition from subsistence or fragmented operations into competitive, market-ready enterprises.</p>
+              <p>In Business Development, we guide organizations through growth strategy, investment readiness, organizational strengthening, and market expansion. Our services focus on building resilient enterprises that are bankable, scalable, and aligned with global standards.</p>
+              <p>Through Project Management Services, AGRICONES delivers structured, end-to-end project execution covering planning, implementation, monitoring, risk management, and results-based reporting. In Real Estate, AGRICONES provides advisory services spanning investment analysis, development management, sustainability integration, and asset optimization.</p>
+              <p>What sets AGRICONES apart is our integrated consulting model, bringing together sector expertise, disciplined project delivery, and a strong understanding of local and international markets since January 4, 2010. We do not offer one-size-fits-all solutions; instead, we design tailored, practical strategies grounded in real-world experience.</p>
             </div>
             <Link to="/about" className="btn-ghost-forest mt-6">Learn More About Us <ArrowRight size={14} /></Link>
 
@@ -181,17 +209,14 @@ function HomePage() {
               Meet the Consulting Team
             </h2>
             <p className="mt-5 text-charcoal/75 leading-relaxed">
-              A team of PhDs, economists, agribusiness experts, and environmental specialists united by a commitment to sustainable development.
+              A multidisciplinary team of PhDs, economists, agribusiness specialists, and environmental scientists with deep experience in Belize, the Caribbean, and Central America.
             </p>
           </div>
 
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((m) => (
               <div key={m.name} className="text-center bg-cream p-6 rounded-lg" style={{ background: "var(--cream)" }}>
-                <div className="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white"
-                  style={{ background: "linear-gradient(135deg, var(--forest), var(--sage))", fontFamily: "var(--font-display)" }}>
-                  {m.initials}
-                </div>
+                <img src={m.image} alt={m.name} className="w-28 h-28 rounded-full mx-auto object-cover object-top border-2 border-white shadow-md" />
                 <h3 className="mt-5 font-semibold text-base leading-snug" style={{ color: "var(--forest)" }}>{m.name}</h3>
                 <p className="text-xs uppercase tracking-wider mt-1.5" style={{ color: "var(--amber-brand)" }}>{m.role}</p>
                 <p className="mt-3 text-sm text-charcoal/70 leading-relaxed">{m.desc}</p>

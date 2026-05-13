@@ -28,7 +28,8 @@ const sections = [
     image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80",
     paras: [
       "AGRICONES provides specialized agribusiness consulting services designed to strengthen agricultural value chains, improve enterprise performance, and connect producers to sustainable markets. We support agribusinesses, cooperatives, SMEs, investors, and development partners in transforming agriculture from primary production into commercially viable, market-driven, and resilient enterprises.",
-      "A core focus is sustainable and climate-resilient agribusiness development. We integrate climate-smart agriculture, regenerative practices, and environmental stewardship into business models, ensuring compliance with international sustainability standards while enhancing long-term resource efficiency.",
+      "Our agribusiness services span the full value chain from production systems and post-harvest handling to processing, marketing, and export readiness. AGRICONES works closely with clients to identify operational bottlenecks, reduce inefficiencies, and introduce best practices that improve productivity, quality, and profitability.",
+      "A core focus of AGRICONES is sustainable and climate resilient agribusiness development. We integrate climate smart agriculture, regenerative practices, and environmental stewardship into business models, ensuring compliance with international sustainability standards while enhancing long-term resource efficiency. This approach allows agribusinesses to meet growing global demand for responsibly sourced products.",
     ],
     items: [
       "Agribusiness project preparation & formulation",
@@ -50,7 +51,9 @@ const sections = [
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
     paras: [
       "AGRICONES delivers business development consulting services that enable organizations to grow strategically, operate efficiently, and compete successfully in local, regional, and international markets. We support SMEs, agribusinesses, cooperatives, start-ups, investors, and institutions seeking structured, practical, and results-oriented growth solutions.",
-      "AGRICONES specializes in investment readiness and capital mobilization, helping organizations become bankable and attractive to financiers, donors, and strategic partners. We support clients in developing business plans, financial models, investment proposals, and pitch materials that meet international standards.",
+      "Our business development services begin with a diagnostic assessment of the organization's strategy, operations, and market positioning. Based on this analysis, AGRICONES designs tailored growth strategies that address market entry, expansion, diversification, and revenue optimization, ensuring alignment between business objectives and market opportunities.",
+      "AGRICONES specializes in investment readiness and capital mobilization, helping organizations become bankable and attractive to financiers, donors, and strategic partners. We support clients in developing business plans, financial models, investment proposals, and pitch materials that meet international standards and clearly communicate value, risk, and return.",
+      "We also strengthen organizational systems and governance, recognizing that sustainable growth depends on strong internal structures. AGRICONES supports clients in organizational design, performance management, policy development, and operational efficiency. In an increasingly digital and competitive environment, we integrate market intelligence and right-sized digital tools that improve customer engagement and decision-making.",
     ],
     items: [
       "Feasibility study",
@@ -73,7 +76,9 @@ const sections = [
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
     paras: [
       "AGRICONES provides comprehensive Project Management Services that support organizations in planning, executing, and delivering projects efficiently, on time, and within budget. We apply internationally recognized project management methodologies while adapting them to the scale, complexity, and operating environment of each project.",
-      "A core strength is risk-based project management — proactively identifying technical, financial, operational, and environmental risks with mitigation strategies to prevent delays and cost overruns. We integrate Monitoring, Evaluation, and Results-Based Management (RBM) into all engagements.",
+      "Our services cover the full project lifecycle, including project design, planning, implementation, monitoring, control, and closure. AGRICONES specializes in managing complex, multi-stakeholder and multi-sector projects, where coordination, risk management, and accountability are critical.",
+      "A core strength of AGRICONES is risk-based project management. We proactively identify technical, financial, operational, and environmental risks and implement mitigation strategies to prevent delays, cost overruns, and scope creep.",
+      "AGRICONES integrates Monitoring, Evaluation, and Results-Based Management (RBM) into all project engagements. We design performance frameworks, indicators, and reporting systems that track progress, measure outcomes, and support evidence-based decision-making.",
     ],
     items: [
       "Project preparation & formulation",
@@ -97,7 +102,10 @@ const sections = [
     image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80",
     paras: [
       "AGRICONES provides integrated Real Estate consulting and advisory services that support investors, developers, businesses, and institutions in making informed decisions across the real estate value chain. We combine market intelligence, financial analysis, and disciplined project delivery to help clients maximize asset value while managing risk.",
-      "A key area of expertise is sustainable and climate-resilient real estate development — integrating ESG principles to support energy efficiency, resource optimization, climate risk mitigation, and long-term asset resilience. Our understanding of emerging and developing market contexts enables clients to reduce transaction risks and avoid costly delays.",
+      "Our real estate services begin with investment and feasibility advisory, including market analysis, highest-and-best-use assessments, and financial modelling. AGRICONES supports clients in evaluating opportunities, understanding regulatory and market dynamics, and structuring real estate investments that are commercially viable and aligned with long-term objectives.",
+      "AGRICONES also delivers real estate development and project management services, overseeing planning, design coordination, budgeting, scheduling, and construction oversight. We act as an independent advisor, ensuring quality, cost control, and timely delivery while coordinating consultants, contractors, and stakeholders.",
+      "A key area of expertise is sustainable and climate resilient real estate development. AGRICONES integrates environmental, social, and governance (ESG) principles into real estate projects, supporting energy efficiency, resource optimization, climate risk mitigation, and long-term asset resilience.",
+      "In addition, AGRICONES provides asset and portfolio advisory services, helping clients optimize operational performance, improve returns, and extend asset life cycles. Our understanding of emerging and developing market contexts enables clients to reduce transaction risks and avoid costly delays.",
     ],
     items: [
       "We buy and sell Residential properties",
@@ -120,8 +128,10 @@ const sections = [
     title: "Science-Driven Environmental Management",
     image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1200&q=80",
     paras: [
-      "AGRICONES contributes to environmental stewardship by advancing agricultural and development systems that actively manage and reduce human impact on natural resources. Our approach recognizes agriculture as a critical interface between human activity and the environment — one that can either degrade ecosystems or restore and sustain them.",
-      "Through climate-smart practices, resource-efficient technologies, and regenerative land management strategies, AGRICONES promotes systems that optimize water, soil, and energy use while minimizing waste, emissions, and ecological disruption.",
+      "AGRICONES contributes to environmental control by advancing agricultural systems that actively manage and reduce human impact on natural resources. Our approach recognizes that agriculture is not only a food production system, but also a critical interface between human activity and the environment - one that can either degrade ecosystems or restore and sustain them.",
+      "Through the integration of climate-smart practices, resource-efficient technologies, and regenerative land management strategies, AGRICONES promotes farming systems that optimize the use of water, soil, and energy while minimizing waste, emissions, and ecological disruption.",
+      "AGRICONES also emphasizes the restoration and preservation of natural systems by encouraging practices that enhance soil health, protect watersheds, and support ecosystem resilience. By aligning agricultural productivity with environmental stewardship, it enables farmers and agricultural stakeholders to become active agents of environmental control.",
+      "Ultimately, AGRICONES positions agriculture as a solution to environmental challenges - demonstrating that productive landscapes can coexist with ecological integrity while safeguarding natural resources essential for future generations.",
     ],
     items: [
       "Advanced GIS and spatial analysis for environmental planning",
