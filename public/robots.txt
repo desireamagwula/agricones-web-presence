@@ -1,2 +1,2 @@
 User-agent: *
-Allow:&#32;/
+Allow: /
