@@ -158,10 +158,10 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 lg:sticky lg:top-28" aria-label="AGRICONES service highlights">
-            <img src={agribusinessPicture} alt="Agribusiness field operations" className="service-media h-44 md:h-52" />
-            <img src={businessDevPicture} alt="Business development collaboration" className="service-media h-44 md:h-52" />
-            <img src={realEstatePicture} alt="Real estate advisory project" className="service-media h-44 md:h-52" />
-            <img src={environmentalPicture} alt="Environmental services in action" className="service-media h-44 md:h-52" />
+            <img src={agribusinessPicture} alt="Agribusiness field operations" className="service-media crop-agribusiness h-44 md:h-52" />
+            <img src={businessDevPicture} alt="Business development collaboration" className="service-media crop-business h-44 md:h-52" />
+            <img src={realEstatePicture} alt="Real estate advisory project" className="service-media crop-real-estate h-44 md:h-52" />
+            <img src={environmentalPicture} alt="Environmental services in action" className="service-media crop-environment-1 h-44 md:h-52" />
           </div>
         </div>
       </section>

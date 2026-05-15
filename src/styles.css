@@ -153,6 +153,23 @@
     max-width: 100%;
   }
 
+  .crop-default { object-position: center center; }
+  .crop-agribusiness { object-position: center 40%; }
+  .crop-business { object-position: center 35%; }
+  .crop-project { object-position: center 28%; }
+  .crop-real-estate { object-position: center 48%; }
+  .crop-environment-1 { object-position: center 42%; }
+  .crop-environment-2 { object-position: center 46%; }
+
+  @media (max-width: 640px) {
+    .crop-agribusiness { object-position: 55% 38%; }
+    .crop-business { object-position: 50% 30%; }
+    .crop-project { object-position: 52% 24%; }
+    .crop-real-estate { object-position: 50% 44%; }
+    .crop-environment-1 { object-position: 50% 36%; }
+    .crop-environment-2 { object-position: 50% 40%; }
+  }
+
   .leaf-divider {
     display: flex; align-items: center; gap: 1rem;
     color: var(--sage);

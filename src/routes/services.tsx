@@ -52,8 +52,8 @@ const sections = [
     cta: "Request Agribusiness Consulting",
     bg: "cream",
     media: [
-      { src: agribusinessLogo, alt: "Agribusiness services logo" },
-      { src: agribusinessPicture, alt: "Agribusiness operations in the field" },
+      { src: agribusinessLogo, alt: "Agribusiness services logo", cropClass: "crop-agribusiness" },
+      { src: agribusinessPicture, alt: "Agribusiness operations in the field", cropClass: "crop-agribusiness" },
     ],
   },
   {
@@ -81,8 +81,8 @@ const sections = [
     cta: "Request Business Development Consulting",
     bg: "white",
     media: [
-      { src: businessDevelopmentLogo, alt: "Business development services logo" },
-      { src: businessDevelopmentPicture, alt: "Business development service engagement" },
+      { src: businessDevelopmentLogo, alt: "Business development services logo", cropClass: "crop-business" },
+      { src: businessDevelopmentPicture, alt: "Business development service engagement", cropClass: "crop-business" },
     ],
   },
   {
@@ -111,8 +111,8 @@ const sections = [
     cta: "Request Project Management Services",
     bg: "cream",
     media: [
-      { src: projectManagementLogo, alt: "Project management services logo" },
-      { src: projectManagementPicture, alt: "Project management planning session" },
+      { src: projectManagementLogo, alt: "Project management services logo", cropClass: "crop-project" },
+      { src: projectManagementPicture, alt: "Project management planning session", cropClass: "crop-project" },
     ],
   },
   {
@@ -142,8 +142,8 @@ const sections = [
     cta: "Request Real Estate Advisory",
     bg: "white",
     media: [
-      { src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80", alt: "Real estate property advisory" },
-      { src: realEstatePicture, alt: "AGRICONES real estate project" },
+      { src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80", alt: "Real estate property advisory", cropClass: "crop-real-estate" },
+      { src: realEstatePicture, alt: "AGRICONES real estate project", cropClass: "crop-real-estate" },
     ],
   },
   {
@@ -173,8 +173,8 @@ const sections = [
     cta: "Request Environmental Consulting",
     bg: "cream",
     media: [
-      { src: environmentalPictureOne, alt: "Environmental services field image one" },
-      { src: environmentalPictureTwo, alt: "Environmental services field image two" },
+      { src: environmentalPictureOne, alt: "Environmental services field image one", cropClass: "crop-environment-1" },
+      { src: environmentalPictureTwo, alt: "Environmental services field image two", cropClass: "crop-environment-2" },
     ],
   },
 ];
@@ -264,7 +264,7 @@ function ServicesPage() {
 
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
                 {s.media.map((m) => (
-                  <img key={m.alt} src={m.src} alt={m.alt} className="service-media h-52" />
+                  <img key={m.alt} src={m.src} alt={m.alt} className={`service-media h-52 ${m.cropClass ?? "crop-default"}`} />
                 ))}
               </div>
 
