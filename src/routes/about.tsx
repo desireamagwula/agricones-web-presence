@@ -108,7 +108,7 @@ function AboutPage() {
       {/* OUR STORY */}
       <section className="py-24 px-6">
         <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-14 items-start">
-          <img src={STORY} alt="Tropical Belizean landscape" className="rounded-lg shadow-xl w-full h-[560px] object-cover sticky top-28" />
+          <img src={STORY} alt="Tropical Belizean landscape" className="rounded-lg shadow-xl w-full h-[560px] object-cover lg:sticky lg:top-28" />
           <div>
             <span className="eyebrow" style={{ color: "var(--amber-brand)" }}>Our Story</span>
             <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight" style={{ color: "var(--forest)" }}>

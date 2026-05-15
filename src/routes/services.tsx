@@ -9,8 +9,10 @@ import businessDevelopmentPicture from "../images/business development services 
 import projectManagementLogo from "../images/project management services.png";
 import projectManagementPicture from "../images/project management services picture.png";
 import realEstatePicture from "../images/agricones real estate picture.jpg";
+import realEstateLogo from "../images/agricones Real Estate Logo.png";
 import environmentalPictureOne from "../images/enviromental services picture 1.jpg";
 import environmentalPictureTwo from "../images/enviromental services picture 2.jpg";
+
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -142,7 +144,7 @@ const sections = [
     cta: "Request Real Estate Advisory",
     bg: "white",
     media: [
-      { src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80", alt: "Real estate property advisory", cropClass: "crop-real-estate" },
+      { src: realEstateLogo, alt: "Real estate property advisory", cropClass: "crop-real-estate" },
       { src: realEstatePicture, alt: "AGRICONES real estate project", cropClass: "crop-real-estate" },
     ],
   },
