@@ -2,6 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Wheat, BarChart3, ClipboardList, Home, Leaf } from "lucide-react";
 import { PageHero } from "./about";
 import { useEffect, useState } from "react";
+import agribusinessLogo from "../images/agribusiness logo.png";
+import agribusinessPicture from "../images/agribusiness picture.jpg";
+import businessDevelopmentLogo from "../images/business development services.png";
+import businessDevelopmentPicture from "../images/business development services picture.png";
+import projectManagementLogo from "../images/project management services.png";
+import projectManagementPicture from "../images/project management services picture.png";
+import realEstatePicture from "../images/agricones real estate picture.jpg";
+import environmentalPictureOne from "../images/enviromental services picture 1.jpg";
+import environmentalPictureTwo from "../images/enviromental services picture 2.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -21,7 +30,7 @@ const HERO = "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=
 
 const sections = [
   {
-    id: "agribusiness",
+    id: "agribusiness-services",
     icon: Wheat,
     eyebrow: "Agribusiness Services",
     title: "Strengthening Agricultural Value Chains",
@@ -42,9 +51,13 @@ const sections = [
     ],
     cta: "Request Agribusiness Consulting",
     bg: "cream",
+    media: [
+      { src: agribusinessLogo, alt: "Agribusiness services logo" },
+      { src: agribusinessPicture, alt: "Agribusiness operations in the field" },
+    ],
   },
   {
-    id: "business",
+    id: "business-development-services",
     icon: BarChart3,
     eyebrow: "Business Development Services",
     title: "Strategic Growth for Resilient Enterprises",
@@ -67,9 +80,13 @@ const sections = [
     ],
     cta: "Request Business Development Consulting",
     bg: "white",
+    media: [
+      { src: businessDevelopmentLogo, alt: "Business development services logo" },
+      { src: businessDevelopmentPicture, alt: "Business development service engagement" },
+    ],
   },
   {
-    id: "project",
+    id: "project-management-services",
     icon: ClipboardList,
     eyebrow: "Project Management Services",
     title: "Disciplined Delivery from Planning to Closure",
@@ -93,9 +110,13 @@ const sections = [
     ],
     cta: "Request Project Management Services",
     bg: "cream",
+    media: [
+      { src: projectManagementLogo, alt: "Project management services logo" },
+      { src: projectManagementPicture, alt: "Project management planning session" },
+    ],
   },
   {
-    id: "realestate",
+    id: "real-estate-services",
     icon: Home,
     eyebrow: "Real Estate Services",
     title: "Strategic Property Advisory & Investment",
@@ -120,9 +141,13 @@ const sections = [
     ],
     cta: "Request Real Estate Advisory",
     bg: "white",
+    media: [
+      { src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80", alt: "Real estate property advisory" },
+      { src: realEstatePicture, alt: "AGRICONES real estate project" },
+    ],
   },
   {
-    id: "environmental",
+    id: "environmental-services",
     icon: Leaf,
     eyebrow: "Environmental Services",
     title: "Science-Driven Environmental Management",
@@ -147,19 +172,23 @@ const sections = [
     ],
     cta: "Request Environmental Consulting",
     bg: "cream",
+    media: [
+      { src: environmentalPictureOne, alt: "Environmental services field image one" },
+      { src: environmentalPictureTwo, alt: "Environmental services field image two" },
+    ],
   },
 ];
 
 const tabs = [
-  { id: "agribusiness", icon: Wheat, label: "Agribusiness" },
-  { id: "business", icon: BarChart3, label: "Business Development" },
-  { id: "project", icon: ClipboardList, label: "Project Management" },
-  { id: "realestate", icon: Home, label: "Real Estate" },
-  { id: "environmental", icon: Leaf, label: "Environmental" },
+  { id: "agribusiness-services", icon: Wheat, label: "Agribusiness" },
+  { id: "business-development-services", icon: BarChart3, label: "Business Development" },
+  { id: "project-management-services", icon: ClipboardList, label: "Project Management" },
+  { id: "real-estate-services", icon: Home, label: "Real Estate" },
+  { id: "environmental-services", icon: Leaf, label: "Environmental" },
 ];
 
 function ServicesPage() {
-  const [active, setActive] = useState("agribusiness");
+  const [active, setActive] = useState("agribusiness-services");
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -232,6 +261,13 @@ function ServicesPage() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                {s.media.map((m) => (
+                  <img key={m.alt} src={m.src} alt={m.alt} className="service-media h-52" />
+                ))}
+              </div>
+
               <Link to="/contact" className="btn-primary mt-8">{s.cta} <ArrowRight size={16} /></Link>
             </div>
           </div>

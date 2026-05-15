@@ -4,6 +4,10 @@ import romaldoLewis from "../images/romaldo lewis.png";
 import philipCastillo from "../images/philip castillo.png";
 import desireeAvila from "../images/desiree avila.png";
 import antonioCano from "../images/antonio cano.jpg";
+import agribusinessPicture from "../images/agribusiness picture.jpg";
+import businessDevPicture from "../images/business development services picture.png";
+import realEstatePicture from "../images/agricones real estate picture.jpg";
+import environmentalPicture from "../images/enviromental services picture 1.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,15 +37,14 @@ export const Route = createFileRoute("/")({
 });
 
 const HERO_IMG = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80";
-const ABOUT_IMG = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80";
 const CTA_IMG = "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1920&q=80";
 
 const services = [
-  { icon: Wheat, name: "Agribusiness Services", desc: "Value chain strengthening, sustainable agriculture, crop production, and agro-processing advisory.", hash: "agribusiness" },
-  { icon: BarChart3, name: "Business Development", desc: "Feasibility studies, investment readiness, strategic planning, and market expansion.", hash: "business" },
-  { icon: ClipboardList, name: "Project Management", desc: "End-to-end project execution, monitoring, evaluation, and results-based management.", hash: "project" },
-  { icon: Home, name: "Real Estate", desc: "Property acquisition, development management, ESG real estate, and investment advisory.", hash: "realestate" },
-  { icon: Leaf, name: "Environmental Services", desc: "GIS analysis, drone surveying, watershed management, and climate resilience planning.", hash: "environmental" },
+  { icon: Wheat, name: "Agribusiness Services", desc: "Value chain strengthening, sustainable agriculture, crop production, and agro-processing advisory.", hash: "agribusiness-services" },
+  { icon: BarChart3, name: "Business Development", desc: "Feasibility studies, investment readiness, strategic planning, and market expansion.", hash: "business-development-services" },
+  { icon: ClipboardList, name: "Project Management", desc: "End-to-end project execution, monitoring, evaluation, and results-based management.", hash: "project-management-services" },
+  { icon: Home, name: "Real Estate", desc: "Property acquisition, development management, ESG real estate, and investment advisory.", hash: "real-estate-services" },
+  { icon: Leaf, name: "Environmental Services", desc: "GIS analysis, drone surveying, watershed management, and climate resilience planning.", hash: "environmental-services" },
 ];
 
 const team = [
@@ -122,14 +125,7 @@ function HomePage() {
 
       {/* ABOUT TEASER */}
       <section className="py-24 px-6">
-        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-14 items-center">
-          <div className="relative">
-            <img src={ABOUT_IMG} alt="Consultants meeting with farmers in tropical setting" className="rounded-lg shadow-xl w-full h-[500px] object-cover" />
-            <div className="absolute -bottom-6 -right-6 hidden md:block bg-[color:var(--amber-brand)] text-white px-6 py-4 rounded-lg shadow-lg">
-              <div className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>16+</div>
-              <div className="text-xs uppercase tracking-widest">Years</div>
-            </div>
-          </div>
+        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-start">
           <div>
             <span className="eyebrow" style={{ color: "var(--amber-brand)" }}>Founded January 4, 2010</span>
             <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight" style={{ color: "var(--forest)" }}>
@@ -138,9 +134,11 @@ function HomePage() {
             <div className="mt-6 space-y-4 text-charcoal/80 leading-relaxed">
               <p>AGRICONES is a multidisciplinary consulting firm delivering reliable, results-driven advisory services across Agriculture, Business Development, Project Management, and Real Estate. We work at the intersection of strategy, execution, and impact, helping clients move from ideas to implementation with clarity, discipline, and measurable results.</p>
               <p>With a strong foundation in emerging and developing markets, AGRICONES supports private enterprises, cooperatives, investors, development partners, and public institutions seeking practical solutions to complex challenges. Our approach combines technical expertise, sound governance, and market intelligence, ensuring every engagement is both commercially viable and sustainably designed.</p>
-              <p>In Agriculture and Agribusiness, AGRICONES strengthens value chains, improves productivity, and supports market access through sustainable and climate-resilient practices. We help producers and agribusinesses transition from subsistence or fragmented operations into competitive, market-ready enterprises.</p>
-              <p>In Business Development, we guide organizations through growth strategy, investment readiness, organizational strengthening, and market expansion. Our services focus on building resilient enterprises that are bankable, scalable, and aligned with global standards.</p>
-              <p>Through Project Management Services, AGRICONES delivers structured, end-to-end project execution covering planning, implementation, monitoring, risk management, and results-based reporting. In Real Estate, AGRICONES provides advisory services spanning investment analysis, development management, sustainability integration, and asset optimization.</p>
+              <p>In <Link to="/services" hash="agribusiness-services" className="service-inline-link">Agribusiness Services</Link>, AGRICONES strengthens value chains, improves productivity, and supports market access through sustainable and climate-resilient practices.</p>
+              <p>In <Link to="/services" hash="business-development-services" className="service-inline-link">Business Development Services</Link>, we guide organizations through growth strategy, investment readiness, organizational strengthening, and market expansion.</p>
+              <p>Through <Link to="/services" hash="project-management-services" className="service-inline-link">Project Management Services</Link>, AGRICONES delivers structured, end-to-end project execution with strong accountability and measurable outcomes.</p>
+              <p>In <Link to="/services" hash="real-estate-services" className="service-inline-link">Real Estate Services</Link>, AGRICONES provides advisory support spanning investment analysis, development management, sustainability integration, and asset optimization.</p>
+              <p>Through <Link to="/services" hash="environmental-services" className="service-inline-link">Environmental Services</Link>, we integrate science, policy, and implementation to protect ecosystems while supporting resilient development.</p>
               <p>What sets AGRICONES apart is our integrated consulting model, bringing together sector expertise, disciplined project delivery, and a strong understanding of local and international markets since January 4, 2010. We do not offer one-size-fits-all solutions; instead, we design tailored, practical strategies grounded in real-world experience.</p>
             </div>
             <Link to="/about" className="btn-ghost-forest mt-6">Learn More About Us <ArrowRight size={14} /></Link>
@@ -157,6 +155,13 @@ function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 lg:sticky lg:top-28" aria-label="AGRICONES service highlights">
+            <img src={agribusinessPicture} alt="Agribusiness field operations" className="service-media h-44 md:h-52" />
+            <img src={businessDevPicture} alt="Business development collaboration" className="service-media h-44 md:h-52" />
+            <img src={realEstatePicture} alt="Real estate advisory project" className="service-media h-44 md:h-52" />
+            <img src={environmentalPicture} alt="Environmental services in action" className="service-media h-44 md:h-52" />
           </div>
         </div>
       </section>

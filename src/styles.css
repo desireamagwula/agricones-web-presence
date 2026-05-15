@@ -133,6 +133,26 @@
   }
   .btn-ghost-forest:hover { color: var(--amber-brand); }
 
+  .service-inline-link {
+    color: #1a4d2e;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.25s ease;
+    font-weight: 600;
+  }
+  .service-inline-link:hover {
+    color: #c8902a;
+    border-bottom-color: #c8902a;
+  }
+
+  .service-media {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+    max-width: 100%;
+  }
+
   .leaf-divider {
     display: flex; align-items: center; gap: 1rem;
     color: var(--sage);

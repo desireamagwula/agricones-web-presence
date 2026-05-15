@@ -1,14 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Globe, Linkedin, Instagram, Twitter } from "lucide-react";
-import logo from "../images/agricones.ico";
 
 const services = [
-  { label: "Agribusiness Services", hash: "agribusiness" },
-  { label: "Business Development", hash: "business" },
-  { label: "Project Management", hash: "project" },
-  { label: "Real Estate", hash: "realestate" },
-  { label: "Environmental Services", hash: "environmental" },
+  { label: "Agribusiness Services", hash: "agribusiness-services" },
+  { label: "Business Development", hash: "business-development-services" },
+  { label: "Project Management", hash: "project-management-services" },
+  { label: "Real Estate", hash: "real-estate-services" },
+  { label: "Environmental Services", hash: "environmental-services" },
 ];
 
 const langs = ["EN", "ES", "ZH", "HI", "AR", "RU"];
@@ -30,17 +29,22 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled || mobileOpen
-          ? "bg-white shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
+          ? "bg-[color:var(--forest)] shadow-[0_2px_20px_rgba(0,0,0,0.16)]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-[1240px] mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-2 group">
-          <img
-            src={logo}
-            alt="AGRICONES"
-            className={`h-14 md:h-16 w-auto transition-all ${scrolled || mobileOpen ? "" : "drop-shadow-[0_3px_8px_rgba(0,0,0,0.35)]"}`}
-          />
+        <Link to="/" className="flex items-center min-w-[220px]">
+          <span
+            className="text-[36px] leading-none font-bold tracking-[0.08em]"
+            style={{
+              fontFamily: "Playfair Display, Georgia, serif",
+              textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+            }}
+          >
+            <span style={{ color: "#C8902A" }}>AGRI</span>
+            <span style={{ color: scrolled || mobileOpen ? "#FFFFFF" : "#1A4D2E" }}>CONES</span>
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -64,7 +68,7 @@ export function SiteHeader() {
             <button
               onClick={() => setLangOpen((o) => !o)}
               className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-sm font-medium transition ${
-                scrolled ? "text-charcoal hover:bg-cream" : "text-white hover:bg-white/10"
+                scrolled ? "text-white hover:bg-white/10" : "text-white hover:bg-white/10"
               }`}
             >
               <Globe size={16} />
@@ -86,7 +90,7 @@ export function SiteHeader() {
             )}
           </div>
 
-          <div className={`hidden xl:flex items-center gap-3 ml-3 ${scrolled ? "text-charcoal" : "text-white"}`}>
+          <div className={`hidden xl:flex items-center gap-3 ml-3 ${scrolled ? "text-white" : "text-white"}`}>
             <a href="#" aria-label="LinkedIn" className="hover:text-[color:var(--amber-brand)]"><Linkedin size={16} /></a>
             <a href="#" aria-label="Twitter" className="hover:text-[color:var(--amber-brand)]"><Twitter size={16} /></a>
             <a href="#" aria-label="Instagram" className="hover:text-[color:var(--amber-brand)]"><Instagram size={16} /></a>
@@ -137,7 +141,7 @@ function NavLink({ to, label, scrolled }: { to: string; label: string; scrolled:
       activeOptions={{ exact: to === "/" }}
       activeProps={{ style: { color: "var(--amber-brand)" } }}
       className={`px-3 py-2 text-sm font-medium tracking-wide transition ${
-        scrolled ? "text-charcoal hover:text-[color:var(--forest)]" : "text-white hover:text-[color:var(--cream)]"
+        scrolled ? "text-white hover:text-[color:var(--cream)]" : "text-white hover:text-[color:var(--cream)]"
       }`}
       style={{ fontFamily: "var(--font-accent)" }}
     >
@@ -158,7 +162,7 @@ function NavDropdown({
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         className={`px-3 py-2 text-sm font-medium tracking-wide transition flex items-center gap-1 ${
-          scrolled ? "text-charcoal hover:text-[color:var(--forest)]" : "text-white hover:text-[color:var(--cream)]"
+          scrolled ? "text-white hover:text-[color:var(--cream)]" : "text-white hover:text-[color:var(--cream)]"
         }`}
         style={{ fontFamily: "var(--font-accent)" }}
       >

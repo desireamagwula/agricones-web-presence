@@ -26,11 +26,11 @@ export function SiteFooter() {
           </FooterCol>
 
           <FooterCol title="Services">
-            <FooterLink to="/services" hash="agribusiness">Agribusiness Services</FooterLink>
-            <FooterLink to="/services" hash="business">Business Development</FooterLink>
-            <FooterLink to="/services" hash="project">Project Management</FooterLink>
-            <FooterLink to="/services" hash="realestate">Real Estate Services</FooterLink>
-            <FooterLink to="/services" hash="environmental">Environmental Services</FooterLink>
+            <FooterLink to="/services" hash="agribusiness-services">Agribusiness Services</FooterLink>
+            <FooterLink to="/services" hash="business-development-services">Business Development</FooterLink>
+            <FooterLink to="/services" hash="project-management-services">Project Management</FooterLink>
+            <FooterLink to="/services" hash="real-estate-services">Real Estate Services</FooterLink>
+            <FooterLink to="/services" hash="environmental-services">Environmental Services</FooterLink>
           </FooterCol>
 
           <FooterCol title="Contact">
