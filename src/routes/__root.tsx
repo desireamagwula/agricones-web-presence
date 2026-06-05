@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -12,6 +13,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CookieBar } from "@/components/CookieBar";
+import { SITE_URL, absoluteUrl } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -78,17 +80,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "AGRICONES | Agricultural & Business Consulting in Belize" },
       { name: "description", content: "AGRICONES is a multidisciplinary consulting firm in Belize offering agribusiness, business development, project management, real estate, and environmental services since 2010." },
       { name: "author", content: "AGRICONES" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "AGRICONES | Agricultural & Business Consulting in Belize" },
       { property: "og:description", content: "Multidisciplinary consulting across Agriculture, Business Development, Project Management, Real Estate & Environmental Services." },
+      { property: "og:image", content: absoluteUrl("/og-default.png") },
+      { property: "og:url", content: SITE_URL },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "AGRICONES" },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AGRICONES | Agricultural & Business Consulting in Belize" },
+      { name: "twitter:description", content: "Multidisciplinary consulting across Agriculture, Business Development, Project Management, Real Estate & Environmental Services." },
+      { name: "twitter:image", content: absoluteUrl("/og-default.png") },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" },
+      { rel: "icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
     ],
   }),
   shellComponent: RootShell,
@@ -114,8 +125,22 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    if (document.getElementById("google-translate-script")) return;
+    const initScript = document.createElement("script");
+    initScript.id = "google-translate-init";
+    initScript.innerHTML =
+      "function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'es,zh-CN,hi,ar,ru',autoDisplay:false},'google_translate_element');}";
+    document.head.appendChild(initScript);
+    const gtScript = document.createElement("script");
+    gtScript.id = "google-translate-script";
+    gtScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    document.head.appendChild(gtScript);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
+      <div id="google_translate_element" style={{ display: "none" }} />
       <SiteHeader />
       <main className="min-h-screen">
         <Outlet />

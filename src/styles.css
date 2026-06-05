@@ -81,6 +81,10 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
   .eyebrow {
     font-family: var(--font-accent);
@@ -178,3 +182,10 @@
     content: ""; flex: 1; height: 1px; background: currentColor; opacity: 0.4;
   }
 }
+
+/* ── Google Translate: suppress default toolbar / banner ─────────────────── */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+#google_translate_element { display: none !important; }

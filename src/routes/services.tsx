@@ -12,6 +12,8 @@ import realEstatePicture from "../images/agricones real estate picture.jpg";
 import realEstateLogo from "../images/agricones Real Estate Logo.png";
 import environmentalPictureOne from "../images/enviromental services picture 1.jpg";
 import environmentalPictureTwo from "../images/enviromental services picture 2.jpg";
+import dronePicture from "../images/drone picture.jpg";
+import { absoluteUrl } from "@/lib/seo";
 
 
 export const Route = createFileRoute("/services")({
@@ -21,9 +23,34 @@ export const Route = createFileRoute("/services")({
       { name: "description", content: "Five specialized consulting domains: Agribusiness, Business Development, Project Management, Real Estate, and Environmental Services." },
       { property: "og:title", content: "Our Services | AGRICONES" },
       { property: "og:description", content: "Five specialized domains. One integrated consulting model." },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: absoluteUrl("/services") },
+      { property: "og:image", content: absoluteUrl("/og-default.png") },
+      { name: "twitter:title", content: "Our Services | AGRICONES" },
+      { name: "twitter:description", content: "Five specialized domains. One integrated consulting model." },
+      { name: "twitter:image", content: absoluteUrl("/og-default.png") },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/services") }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: absoluteUrl("/"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: absoluteUrl("/services"),
+          },
+        ],
+      }),
+    }],
   }),
   component: ServicesPage,
 });
@@ -36,7 +63,7 @@ const sections = [
     icon: Wheat,
     eyebrow: "Agribusiness Services",
     title: "Strengthening Agricultural Value Chains",
-    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80",
+    image: dronePicture,
     paras: [
       "AGRICONES provides specialized agribusiness consulting services designed to strengthen agricultural value chains, improve enterprise performance, and connect producers to sustainable markets. We support agribusinesses, cooperatives, SMEs, investors, and development partners in transforming agriculture from primary production into commercially viable, market-driven, and resilient enterprises.",
       "Our agribusiness services span the full value chain from production systems and post-harvest handling to processing, marketing, and export readiness. AGRICONES works closely with clients to identify operational bottlenecks, reduce inefficiencies, and introduce best practices that improve productivity, quality, and profitability.",
@@ -50,6 +77,7 @@ const sections = [
       "Agro-Processing, Value Addition & Market Readiness",
       "Farmer Organization, Cooperative & SME Agribusiness Development",
       "Climate Resilience, ESG & Nature-Based Solutions Consulting",
+      "Grant proposal writing",
     ],
     cta: "Request Agribusiness Consulting",
     bg: "cream",
@@ -79,6 +107,7 @@ const sections = [
       "Impact, ESG & Sustainability Business Integration",
       "Investment Readiness, Grant Packaging & Fundraising Support",
       "SME Growth Strategy & Market Expansion Advisory",
+      "Grant proposal writing",
     ],
     cta: "Request Business Development Consulting",
     bg: "white",
@@ -92,7 +121,7 @@ const sections = [
     icon: ClipboardList,
     eyebrow: "Project Management Services",
     title: "Disciplined Delivery from Planning to Closure",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    image: projectManagementPicture,
     paras: [
       "AGRICONES provides comprehensive Project Management Services that support organizations in planning, executing, and delivering projects efficiently, on time, and within budget. We apply internationally recognized project management methodologies while adapting them to the scale, complexity, and operating environment of each project.",
       "Our services cover the full project lifecycle, including project design, planning, implementation, monitoring, control, and closure. AGRICONES specializes in managing complex, multi-stakeholder and multi-sector projects, where coordination, risk management, and accountability are critical.",
@@ -109,12 +138,13 @@ const sections = [
       "Program & Portfolio Management for Multi-Country Initiatives",
       "Project design, proposal development, and reporting",
       "Project Recovery, Turnaround & Risk Management",
+      "Grant proposal writing",
     ],
     cta: "Request Project Management Services",
     bg: "cream",
     media: [
       { src: projectManagementLogo, alt: "Project management services logo", cropClass: "crop-project" },
-      { src: projectManagementPicture, alt: "Project management planning session", cropClass: "crop-project" },
+      { src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80", alt: "Project management planning session", cropClass: "crop-project" },
     ],
   },
   {
@@ -122,7 +152,7 @@ const sections = [
     icon: Home,
     eyebrow: "Real Estate Services",
     title: "Strategic Property Advisory & Investment",
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80",
+    image: realEstatePicture,
     paras: [
       "AGRICONES provides integrated Real Estate consulting and advisory services that support investors, developers, businesses, and institutions in making informed decisions across the real estate value chain. We combine market intelligence, financial analysis, and disciplined project delivery to help clients maximize asset value while managing risk.",
       "Our real estate services begin with investment and feasibility advisory, including market analysis, highest-and-best-use assessments, and financial modelling. AGRICONES supports clients in evaluating opportunities, understanding regulatory and market dynamics, and structuring real estate investments that are commercially viable and aligned with long-term objectives.",
@@ -140,12 +170,13 @@ const sections = [
       "Sustainable, Climate-Resilient & ESG Real Estate Consulting",
       "Project & Development Management for Real Estate",
       "International Real Estate Investment Advisory",
+      "Grant proposal writing",
     ],
     cta: "Request Real Estate Advisory",
     bg: "white",
     media: [
-      { src: realEstateLogo, alt: "Real estate property advisory", cropClass: "crop-real-estate" },
-      { src: realEstatePicture, alt: "AGRICONES real estate project", cropClass: "crop-real-estate" },
+      { src: realEstateLogo, alt: "Modern residential house exterior", cropClass: "crop-real-estate" },
+      { src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80", alt: "AGRICONES real estate project", cropClass: "crop-real-estate" },
     ],
   },
   {
@@ -153,7 +184,7 @@ const sections = [
     icon: Leaf,
     eyebrow: "Environmental Services",
     title: "Science-Driven Environmental Management",
-    image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1200&q=80",
+    image: environmentalPictureTwo,
     paras: [
       "AGRICONES contributes to environmental control by advancing agricultural systems that actively manage and reduce human impact on natural resources. Our approach recognizes that agriculture is not only a food production system, but also a critical interface between human activity and the environment - one that can either degrade ecosystems or restore and sustain them.",
       "Through the integration of climate-smart practices, resource-efficient technologies, and regenerative land management strategies, AGRICONES promotes farming systems that optimize the use of water, soil, and energy while minimizing waste, emissions, and ecological disruption.",
@@ -171,12 +202,13 @@ const sections = [
       "Capacity building and technical training",
       "Environmental project design, proposal development, and reporting",
       "Integration of science, policy, and agricultural practice",
+      "Grant proposal writing",
     ],
     cta: "Request Environmental Consulting",
     bg: "cream",
     media: [
       { src: environmentalPictureOne, alt: "Environmental services field image one", cropClass: "crop-environment-1" },
-      { src: environmentalPictureTwo, alt: "Environmental services field image two", cropClass: "crop-environment-2" },
+      { src: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1200&q=80", alt: "Environmental services field image two", cropClass: "crop-environment-2" },
     ],
   },
 ];
@@ -259,7 +291,7 @@ function ServicesPage() {
                 {s.items.map((i) => (
                   <li key={i} className="flex gap-2 text-sm text-charcoal/85">
                     <Check size={16} className="mt-0.5 flex-shrink-0" style={{ color: "var(--amber-brand)" }} />
-                    <span>{i}</span>
+                    <span className="font-bold" style={{ color: "#000000" }}>{i}</span>
                   </li>
                 ))}
               </ul>

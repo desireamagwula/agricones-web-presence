@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Mail, MapPin, Linkedin, Twitter, Instagram, Lock, CheckCircle2, Globe2, Zap, Send } from "lucide-react";
 import { PageHero } from "./about";
 import { z } from "zod";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -11,9 +12,34 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Contact AGRICONES — multidisciplinary consulting for agribusiness, real estate, project management, and environmental services. Email info@agricones.com." },
       { property: "og:title", content: "Contact AGRICONES" },
       { property: "og:description", content: "Tell us about your challenge. We'll respond within 2 business days." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: absoluteUrl("/contact") },
+      { property: "og:image", content: absoluteUrl("/og-default.png") },
+      { name: "twitter:title", content: "Contact AGRICONES" },
+      { name: "twitter:description", content: "Tell us about your challenge. We'll respond within 2 business days." },
+      { name: "twitter:image", content: absoluteUrl("/og-default.png") },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: absoluteUrl("/"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Contact",
+            item: absoluteUrl("/contact"),
+          },
+        ],
+      }),
+    }],
   }),
   component: ContactPage,
 });

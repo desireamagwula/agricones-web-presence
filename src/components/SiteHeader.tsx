@@ -12,6 +12,34 @@ const services = [
 
 const langs = ["EN", "ES", "ZH", "HI", "AR", "RU"];
 
+const LANG_CODE_MAP: Record<string, string> = {
+  EN: "en",
+  ES: "es",
+  ZH: "zh-CN",
+  HI: "hi",
+  AR: "ar",
+  RU: "ru",
+};
+
+function changeGoogleTranslateLanguage(langCode: string) {
+  if (langCode === "en") {
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname}`;
+    window.location.reload();
+    return;
+  }
+  const attempt = (tries: number) => {
+    const select = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+    if (select) {
+      select.value = langCode;
+      select.dispatchEvent(new Event("change"));
+    } else if (tries < 15) {
+      setTimeout(() => attempt(tries + 1), 300);
+    }
+  };
+  attempt(0);
+}
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,6 +51,15 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const match = document.cookie.match(/googtrans=\/en\/([a-zA-Z-]+)/);
+    if (match) {
+      const code = match[1];
+      const entry = Object.entries(LANG_CODE_MAP).find(([, v]) => v === code);
+      if (entry) setLang(entry[0]);
+    }
   }, []);
 
   return (
@@ -80,7 +117,7 @@ export function SiteHeader() {
                 {langs.map((l) => (
                   <button
                     key={l}
-                    onClick={() => { setLang(l); setLangOpen(false); }}
+                    onClick={() => { setLang(l); setLangOpen(false); changeGoogleTranslateLanguage(LANG_CODE_MAP[l]); }}
                     className="w-full text-left px-3 py-1.5 text-sm hover:bg-cream"
                   >
                     {l}
@@ -120,7 +157,7 @@ export function SiteHeader() {
             </Link>
             <div className="flex gap-2 mt-3 flex-wrap">
               {langs.map((l) => (
-                <button key={l} onClick={() => setLang(l)}
+                <button key={l} onClick={() => { setLang(l); changeGoogleTranslateLanguage(LANG_CODE_MAP[l]); }}
                   className={`px-2 py-1 text-xs rounded border ${lang === l ? "bg-forest text-white border-forest" : "border-border"}`}
                   style={lang === l ? { background: "var(--forest)", color: "white", borderColor: "var(--forest)" } : {}}>
                   {l}

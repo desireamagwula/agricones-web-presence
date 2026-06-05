@@ -4,6 +4,8 @@ import romaldoLewis from "../images/romaldo lewis.png";
 import philipCastillo from "../images/philip castillo.png";
 import desireeAvila from "../images/desiree avila.png";
 import antonioCano from "../images/antonio cano.jpg";
+import irrigationImage from "../images/irrigation.jpg";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,15 +14,40 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Meet the multidisciplinary AGRICONES consulting team — PhDs, economists, agribusiness specialists, and environmental scientists serving Belize and the Caribbean since 2010." },
       { property: "og:title", content: "About AGRICONES" },
       { property: "og:description", content: "Experts in Agriculture, Development, and Sustainable Solutions since 2010." },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: absoluteUrl("/about") },
+      { property: "og:image", content: absoluteUrl("/og-default.png") },
+      { name: "twitter:title", content: "About AGRICONES" },
+      { name: "twitter:description", content: "Experts in Agriculture, Development, and Sustainable Solutions since 2010." },
+      { name: "twitter:image", content: absoluteUrl("/og-default.png") },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/about") }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: absoluteUrl("/"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "About",
+            item: absoluteUrl("/about"),
+          },
+        ],
+      }),
+    }],
   }),
   component: AboutPage,
 });
 
 const HERO = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80";
-const STORY = "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80";
+const STORY = irrigationImage;
 
 const team = [
   {

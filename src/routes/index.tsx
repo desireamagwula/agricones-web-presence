@@ -8,6 +8,7 @@ import agribusinessPicture from "../images/agribusiness picture.jpg";
 import businessDevPicture from "../images/business development services picture.png";
 import realEstatePicture from "../images/agricones real estate picture.jpg";
 import environmentalPicture from "../images/enviromental services picture 1.jpg";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,9 +17,13 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Multidisciplinary consulting firm in Belize delivering results across Agriculture, Business, Project Management, Real Estate & Environmental Services." },
       { property: "og:title", content: "AGRICONES | From Ideas to Impact" },
       { property: "og:description", content: "Multidisciplinary consulting firm in Belize delivering results across five integrated service domains." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absoluteUrl("/") },
+      { property: "og:image", content: absoluteUrl("/og-default.png") },
+      { name: "twitter:title", content: "AGRICONES | From Ideas to Impact" },
+      { name: "twitter:description", content: "Multidisciplinary consulting firm in Belize delivering results across five integrated service domains." },
+      { name: "twitter:image", content: absoluteUrl("/og-default.png") },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/") }],
     scripts: [{
       type: "application/ld+json",
       children: JSON.stringify({
@@ -26,6 +31,8 @@ export const Route = createFileRoute("/")({
         "@type": "LocalBusiness",
         name: "AGRICONES",
         email: "info@agricones.com",
+        url: absoluteUrl("/"),
+        logo: absoluteUrl("/og-default.png"),
         foundingDate: "2010-01-04",
         address: { "@type": "PostalAddress", addressCountry: "BZ", addressRegion: "Belize" },
         areaServed: ["Belize", "Central America", "Caribbean"],
