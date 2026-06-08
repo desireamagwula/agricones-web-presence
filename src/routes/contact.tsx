@@ -5,6 +5,17 @@ import { PageHero } from "./about";
 import { z } from "zod";
 import { absoluteUrl } from "@/lib/seo";
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  organization: z.string().trim().max(150).optional(),
+  email: z.string().trim().email("Invalid email").max(255),
+  phone: z.string().trim().max(40).optional(),
+  service: z.string().min(1, "Please select a service"),
+  country: z.string().trim().max(100).optional(),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000),
+  source: z.string().max(60).optional(),
+});
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -41,32 +52,106 @@ export const Route = createFileRoute("/contact")({
       }),
     }],
   }),
+  server: {
+    handlers: {
+      POST: async ({ request }) => {
+        const payload = await request.json().catch(() => null);
+        const parsed = contactSchema.safeParse(payload);
+
+        if (!parsed.success) {
+          const errors: Record<string, string> = {};
+          parsed.error.issues.forEach((issue) => {
+            errors[issue.path[0] as string] = issue.message;
+          });
+
+          return Response.json({ ok: false, errors }, { status: 400 });
+        }
+
+        const smtpHost = process.env.SMTP_HOST;
+        const smtpPort = Number(process.env.SMTP_PORT ?? 587);
+        const smtpUser = process.env.SMTP_USER;
+        const smtpPass = process.env.SMTP_PASS;
+        const smtpSecure = (process.env.SMTP_SECURE ?? "false").toLowerCase() === "true";
+        const fromEmail = process.env.CONTACT_FROM_EMAIL ?? smtpUser ?? "info@agricones.com";
+        const toEmail = process.env.CONTACT_TO_EMAIL ?? "info@agricones.com";
+
+        if (!smtpHost || !smtpUser || !smtpPass) {
+          return Response.json(
+            {
+              ok: false,
+              message: "Email service is not configured yet. Set SMTP_HOST, SMTP_PORT, SMTP_USER, and SMTP_PASS.",
+            },
+            { status: 500 },
+          );
+        }
+
+        const nodemailer = await import("nodemailer");
+        const transporter = nodemailer.createTransport({
+          host: smtpHost,
+          port: smtpPort,
+          secure: smtpSecure,
+          auth: {
+            user: smtpUser,
+            pass: smtpPass,
+          },
+        });
+
+        const data = parsed.data;
+        const textBody = [
+          `Name: ${data.name}`,
+          `Organization: ${data.organization || "-"}`,
+          `Email: ${data.email}`,
+          `Phone: ${data.phone || "-"}`,
+          `Service: ${data.service}`,
+          `Country: ${data.country || "-"}`,
+          `Source: ${data.source || "-"}`,
+          "",
+          "Message:",
+          data.message,
+        ].join("\n");
+
+        const htmlBody = `
+          <h2>New AGRICONES enquiry</h2>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Organization:</strong> ${data.organization || "-"}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone || "-"}</p>
+          <p><strong>Service:</strong> ${data.service}</p>
+          <p><strong>Country:</strong> ${data.country || "-"}</p>
+          <p><strong>Source:</strong> ${data.source || "-"}</p>
+          <p><strong>Message:</strong></p>
+          <p>${data.message.replace(/\n/g, "<br />")}</p>
+        `;
+
+        await transporter.sendMail({
+          from: `AGRICONES Website <${fromEmail}>`,
+          to: toEmail,
+          replyTo: data.email,
+          subject: `AGRICONES Inquiry — ${data.service}`,
+          text: textBody,
+          html: htmlBody,
+        });
+
+        return Response.json({ ok: true });
+      },
+    },
+  },
   component: ContactPage,
 });
 
 const HERO = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80";
 
-const schema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  organization: z.string().trim().max(150).optional(),
-  email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().max(40).optional(),
-  service: z.string().min(1, "Please select a service"),
-  country: z.string().trim().max(100).optional(),
-  message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000),
-  source: z.string().max(60).optional(),
-});
-
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData) as Record<string, string>;
-    const result = schema.safeParse(data);
+    const result = contactSchema.safeParse(data);
     if (!result.success) {
       const errs: Record<string, string> = {};
       result.error.issues.forEach((i) => { errs[i.path[0] as string] = i.message; });
@@ -74,14 +159,35 @@ function ContactPage() {
       return;
     }
     setErrors({});
+    setSubmitError(null);
     setSubmitting(true);
-    // Open user's mail client as a fallback delivery to info@agricones.com
-    const body = encodeURIComponent(
-      `Name: ${result.data.name}\nOrganization: ${result.data.organization || "-"}\nEmail: ${result.data.email}\nPhone: ${result.data.phone || "-"}\nService: ${result.data.service}\nCountry: ${result.data.country || "-"}\nSource: ${result.data.source || "-"}\n\nMessage:\n${result.data.message}`
-    );
-    const subject = encodeURIComponent(`AGRICONES Inquiry — ${result.data.service}`);
-    window.location.href = `mailto:info@agricones.com?subject=${subject}&body=${body}`;
-    setTimeout(() => { setSubmitted(true); setSubmitting(false); }, 400);
+
+    try {
+      const response = await fetch("/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+
+      const payload = await response.json().catch(() => null) as
+        | { ok?: boolean; errors?: Record<string, string>; message?: string }
+        | null;
+
+      if (!response.ok || !payload?.ok) {
+        if (payload?.errors) {
+          setErrors(payload.errors);
+        }
+        setSubmitError(payload?.message ?? "We couldn't send your message right now. Please try again.");
+        return;
+      }
+
+      e.currentTarget.reset();
+      setSubmitted(true);
+    } catch {
+      setSubmitError("We couldn't send your message right now. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -147,11 +253,17 @@ function ContactPage() {
           <div className="bg-white rounded-xl shadow-xl border border-border p-8 md:p-10">
             <h3 className="text-2xl font-semibold" style={{ color: "var(--forest)" }}>Send Us a Message</h3>
 
+            {submitError && !submitted && (
+              <div className="mt-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                {submitError}
+              </div>
+            )}
+
             {submitted ? (
               <div className="mt-8 p-6 rounded-lg text-center" style={{ background: "var(--cream)" }}>
                 <CheckCircle2 size={48} className="mx-auto" style={{ color: "var(--forest)" }} />
                 <p className="mt-4 text-charcoal font-medium">
-                  Thank you! Your message has been received. A member of the AGRICONES team will respond within 2 business days.
+                  Thank you! Your message has been sent successfully. A member of the AGRICONES team will respond within 2 business days.
                 </p>
               </div>
             ) : (

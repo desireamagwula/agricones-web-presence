@@ -4,6 +4,7 @@ import romaldoLewis from "../images/romaldo lewis.png";
 import philipCastillo from "../images/philip castillo.png";
 import desireeAvila from "../images/desiree avila.png";
 import antonioCano from "../images/antonio cano.jpg";
+import geraldoFlowers from "../images/geraldo flowers.png";
 import agribusinessPicture from "../images/agribusiness picture.jpg";
 import businessDevPicture from "../images/business development services picture.png";
 import realEstatePicture from "../images/agricones real estate picture.jpg";
@@ -60,6 +61,12 @@ const team = [
     role: "Founder & Lead Consultant",
     desc: "20+ years in agricultural systems, business strategy, project management, and socio-economic development.",
     image: romaldoLewis,
+  },
+  {
+    name: "Dr. Geraldo Flowers (PhD)",
+    role: "Senior Consultant — Public Administration & Development Strategy",
+    desc: "30+ years in development planning, public sector reform, project management, and climate finance mobilization.",
+    image: geraldoFlowers,
   },
   {
     name: "Dr. Philip Castillo (PhD)",

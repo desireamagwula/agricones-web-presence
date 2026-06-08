@@ -5,6 +5,7 @@ import philipCastillo from "../images/philip castillo.png";
 import desireeAvila from "../images/desiree avila.png";
 import antonioCano from "../images/antonio cano.jpg";
 import irrigationImage from "../images/irrigation.jpg";
+import geraldoFlowers from "../images/geraldo flowers.png";
 import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -68,6 +69,20 @@ const team = [
       "Dr. Lewis is deeply committed to advancing sustainable agriculture, inclusive economic development, and capacity building through innovative, data-driven, and client-centered solutions that deliver measurable impact.",
     ],
     clients: ["FAO", "World Bank", "IFAD", "IDB", "IICA", "SIB"],
+  },
+  {
+    name: "Dr. Geraldo Flowers, PhD",
+    role: "Senior Consultant — Public Administration & Development Strategy",
+    image: geraldoFlowers,
+    tags: ["PhD Public Administration", "MPA", "Project Appraisal & Risk Management"],
+    bio: [
+      "Dr. Geraldo Flowers is a distinguished public administration specialist, development strategist, and project management expert with more than three decades of professional experience across Belize, the Caribbean, and the United States.",
+      "As a Senior Consultant to AGRICONES, Dr. Flowers provides strategic leadership in project development, organizational management, climate finance mobilization, public sector reform, monitoring and evaluation systems, and institutional capacity strengthening.",
+      "His expertise includes the design and management of complex development initiatives funded by organizations such as the Green Climate Fund (GCF), Inter-American Development Bank (IDB), Caribbean Development Bank (CDB), United Nations Development Programme (UNDP), European Union (EU), and USAID.",
+      "Throughout his career, Dr. Flowers has held senior leadership positions including Programme Manager for the Resilient Rural Belize Programme, Town Administrator for San Ignacio/Santa Elena, City Administrator for Belmopan, and Vice President for Finance and Administration at the University of Belize.",
+      "His blend of academic rigor, executive management experience, and international consulting practice positions him as a respected authority in development planning, governance reform, climate finance, and organizational transformation.",
+    ],
+    clients: ["GCF", "IDB", "CDB", "UNDP", "EU", "USAID"],
   },
   {
     name: "Dr. Philip Castillo, PhD",
